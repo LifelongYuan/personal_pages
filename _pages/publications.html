@@ -1,20 +1,38 @@
 ---
 layout: archive
-title: "Publications"
-permalink: /publications/
+title: "Hongbo Zhang"
+permalink: /
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
-
 {% include base_path %}
-
+<p>
+  I am a third-year Ph.D. candidate in the Department of Mechanical and Automation Engineering at The Chinese University of Hong Kong (CUHK). 
+  As a member of the <a href="https://cuhkleggedrobotlab.github.io/">Legged Robot Lab (CUHKLRL)</a>, 
+  I work under the supervision of Professor <a href="https://www4.mae.cuhk.edu.hk/peoples/liu-yun-hui/">Yunhui Liu</a>. My research focuses on developing advanced control strategies for legged robots through reinforcement learning approaches. I am particularly interested in bridging the gap between theoretical robotics and practical applications, working to create more robust and adaptable control systems for complex robotic platforms.
+</p>
+<p>
+  Before joining CUHK, I received my B.E. degree in 2022 at Zhejiang University in Automation and Control.
+</p>
+<p>
+  My current research interests focus on <b>robot learning</b>, including:
+  <ul>
+    <li>Optimal Control and Reinforcement Learning</li>
+    <li>Safety Critical Learning</li>
+    <li>Legged System (Hoppers, Quadrupeds and Bipedals) Locomotion and Manipulation</li>
+  </ul>
+</p>
 <!-- New style rendering if publication categories are defined -->
+<h1>Publications</h1>
+<div>* equal contribution</div>
+{% assign publications_by_year = site.publications | group_by: "year" | sort: "name" | reverse %}
 
-{% for post in site.publications reversed %}
-  {% include archive-single.html %}
+{% for year in publications_by_year %}
+  <h2 id="{{ year.name }}" class="archive__subtitle">{{ year.name }}</h2>
+  {% assign sorted_posts = year.items | sort: "relevance" | reverse %}
+  {% for post in sorted_posts %}
+    {% include archive-single.html %}
+  {% endfor %}
 {% endfor %}
 
 

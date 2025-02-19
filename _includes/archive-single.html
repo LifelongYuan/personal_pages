@@ -26,12 +26,12 @@
       </div>
     {% endif %}
 
-    <div style="display: flex; align-items: center; width: 100%;">
+    <div style="display: flex; align-items: center; width: 200%;">
       {% if post.title_picture %}
-        <img src="{{ post.title_picture | prepend: base_path }}" alt="{{ post.title }}" style="height: 1em; margin-right: 10px;"> 
+        <img src="{{ post.title_picture | prepend: base_path }}" alt="{{ post.title }}" style="height: 10em;width: 16em; margin-right: 10px;"> 
       {% endif %}
       <div>
-        <h2 class="archive__item-title" itemprop="headline" style="text-decoration: none;">
+        <h2 itemprop="headline" style="text-decoration: none;">
           {% if post.link %}
             <span style="text-decoration: none;">{{ title }}</span> <i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span>
           {% else %}
@@ -42,10 +42,9 @@
         {% if post.read_time %}
           <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
         {% endif %}
-        <p class="archive__item-author"><em>{{ post.author }}</em>{% if post.journal %}, {{ post.journal }}{% endif %}</p>
-        <!-- {% if post.abstract %}
-          <p class="archive__item-abstract">{{ post.abstract | markdownify }}</p>
-        {% endif %} -->
+        <p>{{ post.author | replace: "Hongbo Zhang", "<strong>Hongbo Zhang</strong>" }}</p>
+        {% if post.journal %}<em><p style="margin-top: -1em;"><u>{{ post.journal }}</u></p></em>{% endif %}
+
 
         <!-- {% if post.collection == 'teaching' %}
           <p> {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
@@ -71,10 +70,18 @@
           <p>Recommended citation: {{ post.citation }}</p>
         {% endif %}
         <p style="display: inline;">
-          {% if post.paper_link %}<a href="{{ post.paper_link }}" style="margin-right: 15px;">paper</a>{% endif %}
+          {% if post.abstract %}<p style="margin-top: -1em;">{{ post.abstract | markdownify }}</p>{% endif %}
+          {% if post.paper_link %}
+            {% if post.paper_link contains '/files/' %}
+              <a href="{{ post.paper_link | prepend: base_path }}" style="margin-right: 15px;">paper</a>
+            {% else %}
+              <a href="{{ post.paper_link }}" style="margin-right: 15px;">paper</a>
+            {% endif %}
+          {% endif %}
           {% if post.code_link %}<a href="{{ post.code_link }}" style="margin-right: 15px;">code</a>{% endif %}
-          {% if post.video_link %}<a href="{{ post.video_link }}" style="margin-right: 15px;">video</a>{% endif %}
+          {% if post.youtube_link %}<a href="{{ post.youtube_link }}" style="margin-right: 15px;">youtube</a>{% endif %}
           {% if post.twitter_link %}<a href="{{ post.twitter_link }}" style="margin-right: 15px;">twitter</a>{% endif %}
+          {% if post.bilibili_link %}<a href="{{ post.bilibili_link }}" style="margin-right: 15px;">bilibili</a>{% endif %}
         </p>
 
       </div>
