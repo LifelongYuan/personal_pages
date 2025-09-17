@@ -9,7 +9,7 @@ bilibili_link:
 author: "Hongbo Zhang, Zhongyu Li, Xuanqi Zeng, Laura Smith, Kyle Stachowicz, Dhruv Shah, Linzhu Yue, Zhitao Song, Weipeng Xia, Sergey Levine, Koushil Sreenath, Yun-hui Liu"
 abstract: "This work develops a hierarchical RGBD-based traversability-aware navigation-locomotion framework using reinforcement learning."
 category: manuscripts
-journal: Under Review (2025)
+journal: IEEE Transaction on Robotics (2025)
 year: 2025
 relevance: 1
 title_picture: '/images/trv.gif'
