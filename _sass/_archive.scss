@@ -28,14 +28,14 @@
 }
 
 .archive__subtitle {
-  margin: 1.414em 0 0;
-  padding-bottom: 0.5em;
+  margin: 1em 0 0.35em;
+  padding-bottom: 0.35em;
   font-size: $type-size-5;
   color: mix(#fff, $gray, 25%);
   border-bottom: 1px solid $border-color;
 
   + .list__item .archive__item-title {
-    margin-top: 0.5em;
+    margin-top: 0.25em;
   }
 }
 
@@ -52,7 +52,7 @@
 .page__content {
 
   .archive__item-title {
-    margin-top: 1em;
+    margin-top: 0.35em;
     border-bottom: none;
   }
 }
@@ -90,6 +90,9 @@
    ========================================================================== */
 
 .list__item {
+  margin-bottom: 0.75em;
+  padding-bottom: 0.5em;
+
   @include breakpoint($medium) {
     padding-right: $right-sidebar-width-narrow;
   }
@@ -104,6 +107,21 @@
 
   .page__meta {
     margin: 0 0 4px;
+  }
+
+  .archive__item {
+    margin: 0;
+  }
+
+  h2,
+  .archive__item-title {
+    margin-top: 0;
+    margin-bottom: 0.2em;
+    padding-bottom: 0;
+  }
+
+  p {
+    margin-bottom: 0.35em;
   }
 }
 

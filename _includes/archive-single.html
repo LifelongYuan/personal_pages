@@ -26,9 +26,9 @@
       </div>
     {% endif %}
 
-    <div style="display: flex; align-items: center; width: 200%;">
+    <div style="display: flex; align-items: flex-start; width: 200%; margin-bottom: 0.25em;">
       {% if post.title_picture %}
-        <img src="{{ post.title_picture | prepend: base_path }}" alt="{{ post.title }}" style="height: 10em;width: 16em; margin-right: 10px;"> 
+        <img src="{{ post.title_picture | prepend: base_path }}" alt="{{ post.title }}" style="height: 8.5em; width: 13.5em; object-fit: cover; margin-right: 12px; flex-shrink: 0;">
       {% endif %}
       <div>
         <h2 itemprop="headline" style="text-decoration: none;">
@@ -43,7 +43,7 @@
           <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
         {% endif %}
         <p>{{ post.author | replace: "Hongbo Zhang", "<strong>Hongbo Zhang</strong>" }}</p>
-        {% if post.journal %}<em><p style="margin-top: -1em;"><u>{{ post.journal }}</u></p></em>{% endif %}
+        {% if post.journal %}<em><p style="margin-top: 0.15em; margin-bottom: 0.35em;"><u>{{ post.journal }}</u></p></em>{% endif %}
 
 
         <!-- {% if post.collection == 'teaching' %}
@@ -70,7 +70,7 @@
           <p>Recommended citation: {{ post.citation }}</p>
         {% endif %}
         <p style="display: inline;">
-          {% if post.abstract %}<p style="margin-top: -1em;">{{ post.abstract | markdownify }}</p>{% endif %}
+          {% if post.abstract %}<p style="margin-top: 0.15em; margin-bottom: 0.35em;">{{ post.abstract | markdownify }}</p>{% endif %}
           {% if post.paper_link %}
             {% if post.paper_link contains '/files/' %}
               <a href="{{ post.paper_link | prepend: base_path }}" style="margin-right: 15px;">paper</a>
